@@ -7,6 +7,11 @@ app.get('/hotels', function (req, res) {
     res.json(hotels)
 });
 
-app.listen(3000, function () {
-    console.log('Example app listening on port 3000!')
+app.get('/hotel', function (req, res) {
+    var hotel = hotels[Math.floor(Math.random()*hotels.length)];
+    res.json(hotel);
+});
+
+app.listen(3001, function () {
+    console.log('App listening on port 3001!')
 });
