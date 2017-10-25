@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js",
+    "start": "nodemon server.js",
+    "hotels:export": "mongoexport --db ThomasCook --collection hotels --out ./data/hotels.json --jsonArray",
+    "hotels:import": "mongoimport --db ThomasCook --collection hotels --file ./data/hotels.json --jsonArray",
     "gen:hotels": "node ./data/prepareHotelsJSON.js"
   },
   "repository": {
@@ -19,6 +21,10 @@
   "homepage": "https://github.com/DireWereWolf/hwms#readme",
   "dependencies": {
     "express": "^4.16.2",
-    "lodash": "^4.17.4"
+    "lodash": "^4.17.4",
+    "mongoose": "^4.12.4"
+  },
+  "devDependencies": {
+    "nodemon": "^1.12.1"
   }
 }
